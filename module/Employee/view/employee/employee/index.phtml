@@ -1,0 +1,24 @@
+<?php 
+$title = 'Employee application'; 
+$this->headTitle($title); 
+?>  
+
+<table class="table"> 
+   <tr> 
+      <th>Employee Name</th> 
+      <th>Employee Job</th> 
+      <th>Edit/Delete operations</th>
+   </tr> 
+   <?php foreach ($data as $empdata) : ?> 
+   <tr>  
+      <td><?php echo $this->escapeHtml($empdata->emp_name);?></td> 
+      <td><?php echo $this->escapeHtml($empdata->emp_job);?></td> 
+      <td> 
+         <a href="<?php echo $this->url('employee', 
+            array('action'=>'edit', 'id' =>$empdata->id));?>">Edit</a> 
+         <a href="<?php echo $this->url('employee', 
+            array('action'=>'delete', 'id' => $empdata->id));?>">Delete</a> 
+      </td> 
+   </tr> 
+   <?php endforeach; ?> 
+</table> 
